@@ -1,11 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>ola, aula 01 05/08/2022</Text>
-      <StatusBar style="auto" />
+		  <View style={styles.bloco}>
+			  <Text>Calculadora Simples</Text>
+		  </View>
+		  <View style={styles.bloco}>
+		  	<Text>Valor 1: </Text>
+			  <TextInput style = {styles.input}/>
+		  </View>
+		  <View style={styles.bloco}>
+		  	<Text>Valor 2: </Text>
+			  <TextInput style = {styles.input}/>
+		  </View>
+		  <View style={styles.bloco}>
+		  	<TouchableOpacity style = {styles.botao}>
+			 	<Text style = {styles.textoBotao}>Somar</Text> 
+			</TouchableOpacity>
+		  </View>
     </View>
   );
 }
@@ -13,8 +27,28 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
+	bloco:{
+		marginTop: 20,
+		width:'80%',
+		marginLeft:'10%'
+	},
+	titulo:{
+		fontSize:30,
+		textAlign:'center'
+	},
+	input:{
+		borderWidth:2,
+		fontSize: 20
+	},
+	botao:{
+		backgroundColor:'#000',
+		padding: 5,
+		borderRadius: 10
+	},
+	textoBotao:{
+		color:'#FFF',
+		textAlign:'center',
+		fontSize:20
+	},
 });
