@@ -2,11 +2,27 @@ import React,{useState} from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 
 export default function App() {
-	const [valor1, setValor1] = useState(20);
-	const [valor2, setValor2] = useState(20);
+	const [valor1, setValor1] = useState(10);
+	const [valor2, setValor2] = useState(2);
 	const [resultado, setResultado] = useState();
 	function somar(){
 		let r = parseFloat(valor1) + parseFloat(valor2);
+		setResultado(r);
+	}
+	function subtrair (){
+		let r = parseFloat(valor1) - parseFloat(valor2);
+		setResultado(r);
+	}
+	function multiplicar(){
+		let r = parseFloat(valor1) * parseFloat(valor2);
+		setResultado(r);
+	}
+	function dividir(){
+		let r = parseFloat(valor1) / parseFloat(valor2);
+		setResultado(r);
+	}
+	function exponencial(){
+		let r = parseFloat(valor1) ** parseFloat(valor2);
 		setResultado(r);
 	}
 
@@ -33,11 +49,35 @@ export default function App() {
 				  keyboardType="numeric"
 				/>
 		  </View>
-		  <View style={styles.bloco}>
+		  <View style={styles.blocobtn}>
 		  	<TouchableOpacity style = {styles.botao}
 				onPress={somar}
 				>
-			 	<Text style = {styles.textoBotao}>Somar</Text> 
+			 	<Text style = {styles.textoBotao}>+</Text> 
+			</TouchableOpacity>
+			  
+			<TouchableOpacity style = {styles.botao}
+				onPress={subtrair}
+				>
+			 	<Text style = {styles.textoBotao}>-</Text> 
+			</TouchableOpacity>
+			  
+			 <TouchableOpacity style = {styles.botao}
+				onPress={multiplicar}
+				>
+			 	<Text style = {styles.textoBotao}>x</Text> 
+			</TouchableOpacity>
+			  
+			  <TouchableOpacity style = {styles.botao}
+				onPress={dividir}
+				>
+			 	<Text style = {styles.textoBotao}>÷</Text> 
+			</TouchableOpacity>
+			  
+			  <TouchableOpacity style = {styles.botao}
+				onPress={exponencial}
+				>
+			 	<Text style = {styles.textoBotao}>^</Text> 
 			</TouchableOpacity>
 		  </View>
 		  <View style={styles.bloco}>
@@ -56,6 +96,13 @@ const styles = StyleSheet.create({
 		width:'80%',
 		marginLeft:'10%'
 	},
+	blocobtn:{
+		marginTop: 20,
+		width:'80%',
+		marginLeft:'10%',
+		display: 'flex',
+		flexDirection: 'row'
+	},
 	titulo:{
 		fontSize:30,
 		textAlign:'center'
@@ -67,11 +114,14 @@ const styles = StyleSheet.create({
 	botao:{
 		backgroundColor:'#000',
 		padding: 5,
-		borderRadius: 10
+		borderRadius: 10,
+		marginTop: 2,
+		width: 30,
+		marginLeft: 28
 	},
 	textoBotao:{
 		color:'#FFF',
 		textAlign:'center',
-		fontSize:20
+		fontSize:15
 	},
 });
